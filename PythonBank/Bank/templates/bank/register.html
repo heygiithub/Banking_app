@@ -1,0 +1,31 @@
+{% comment %} <h2>Register</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <button type="submit">Register</button>
+</form>
+
+<a href="{% url 'login' %}">Already have an account? login</a> {% endcomment %}
+
+<form method="POST">
+    {% comment %} {% csrf_token %}
+    {{form.as_p}} {% endcomment %}
+    <div class="mb-3">
+      <label for="Username" class="form-label">Username</label>
+      {% csrf_token %}
+      <input type="user.username" class="form-control" id="Username" aria-describedby="emailHelp">
+      {% comment %} <div id="emailHelp" class="form-text">Enter your Username</div> {% endcomment %}
+    </div>
+    <div class="mb-3">
+        {{form.as_p}}
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1">
+    </div>
+    <div class="mb-3 form-check">Already have an account? 
+      {% comment %} <input type="checkbox" class="form-check-input" id="exampleCheck1"> {% endcomment %}
+      <a href="{% url 'login' %}">login</a>
+      {% comment %} <label class="form-check-label" for="exampleCheck1">Check me out</label> {% endcomment %}
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+  </form>
